@@ -50,3 +50,22 @@ var (
 Log = golog.New(false) // true, 记录到日志文件上
 Log.Info("日志记录")
 ```
+
+### gocron
+
+定时器
+
+```go
+package main
+
+import "github.com/arryuu/golib/gocron"
+
+c := gocron.NewCron()
+c.AddFunc("*/5 * * * * * *", func () {
+	fmt.Println(5, time.Now())
+})
+c.AddFunc("*/2 * * * * * *", func () {
+	fmt.Println(2, time.Now())
+})
+c.Start()
+```
